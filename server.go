@@ -540,7 +540,7 @@ func translateErrno(errno syscall.Errno) uint32 {
 		return ssh_FX_OK
 	case syscall.ENOENT:
 		return ssh_FX_NO_SUCH_FILE
-	case syscall.EPERM:
+	case syscall.EACCES, syscall.EPERM:
 		return ssh_FX_PERMISSION_DENIED
 	}
 
